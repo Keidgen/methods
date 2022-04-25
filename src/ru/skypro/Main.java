@@ -11,6 +11,7 @@ public class Main {
         task3();
         task4();
         task5();
+        task6();
     }
 
     public static void task1() {
@@ -32,6 +33,12 @@ public class Main {
 
     public static void task5() {
         reverseArray(new int[]{3, 2, 1, 6, 5});
+    }
+
+    public static void task6() {
+        int[] arr = generateRandomArray();
+        double averagePay = defineAveragePayment(arr);
+        System.out.println("Средняя сумма трат за месяц составила " + averagePay + " рублей");
     }
 
     public static void defineYearIsLeap(int year) {
@@ -104,5 +111,32 @@ public class Main {
 
         System.out.println(Arrays.toString(arr));
 
+    }
+
+    public static double defineAveragePayment(int[] arr) {
+        double averagePay = 1d;
+        int sumPay = 0;
+
+        sumPay = defineSumArr(arr);
+        averagePay = sumPay / 30;
+
+        return averagePay;
+    }
+
+    public static int defineSumArr(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum = sum + i;
+        }
+        return sum;
+    }
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
     }
 }
